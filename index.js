@@ -11,6 +11,10 @@ import ModalEdit from './screens/ModalEdit';
 
 import Dates from './screens/Dates';
 import Notes from './screens/Notes';
+import AddDate from './screens/AddDate';
+import AddNote from './screens/AddNote';
+
+import AddDateModal from './screens/AddDateModal';
 
 Navigation.registerComponent(`navigation.playground.WelcomeScreen`, () => App);
 
@@ -21,6 +25,11 @@ Navigation.registerComponent('ModalEdit', () => ModalEdit);
 
 Navigation.registerComponent('Dates', () => Dates);
 Navigation.registerComponent('Notes', () => Notes);
+Navigation.registerComponent('AddDate', () => AddDate);
+Navigation.registerComponent('AddNote', () => AddNote);
+
+Navigation.registerComponent('AddDateModal', () => AddDateModal);
+
 
 //Navigation.registerComponent('Devices', () => require('./screens/Devices').default);
 //Navigation.registerComponent('Connection', () => require('./screens/Connection').default);
@@ -72,6 +81,32 @@ Navigation.setRoot({
             }
           },
         },
+        {
+          component: {
+            name: 'AddDate',
+            options: {
+              bottomTab: {
+                text: 'add date',
+                fontSize: 12,
+                icon: require('./add.png')
+                //icon: require('./signup.png')
+              }
+            }
+          },
+        },
+        {
+          component: {
+            name: 'AddNote',
+            options: {
+              bottomTab: {
+                text: 'add note',
+                fontSize: 12,
+                icon: require('./add.png')
+                //icon: require('./signup.png')
+              }
+            }
+          },
+        }
       ],
     }
   }

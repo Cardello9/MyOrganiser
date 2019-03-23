@@ -7,13 +7,39 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {Platform, StyleSheet, Text, View, TouchableOpacity, ScrollView, RefreshControl} from 'react-native';
 
 export default class Dates extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      refreshing: false
+    };
+  }
+
   render() {
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.button1}></TouchableOpacity>
+          <Text style={styles.welcome}>VIEW DATES</Text>
+          <ScrollView
+                refreshControl={
+                  <RefreshControl
+                    refreshing={this.state.refreshing}
+                    onRefresh={this._onRefresh}
+                  />
+                }>
+                <TouchableOpacity style={styles.button1}></TouchableOpacity>
+                <TouchableOpacity style={styles.button1}></TouchableOpacity>
+                <TouchableOpacity style={styles.button1}></TouchableOpacity>
+                <TouchableOpacity style={styles.button1}></TouchableOpacity>
+                <TouchableOpacity style={styles.button1}></TouchableOpacity>
+                <TouchableOpacity style={styles.button1}></TouchableOpacity>
+                <TouchableOpacity style={styles.button1}></TouchableOpacity>
+                <TouchableOpacity style={styles.button1}></TouchableOpacity>
+                <TouchableOpacity style={styles.button1}></TouchableOpacity>
+                <TouchableOpacity style={styles.button1}></TouchableOpacity>
+          </ScrollView>
       </View>
     );
   }
@@ -27,6 +53,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#81d4fa',
   },
   welcome: {
+    fontFamily: "Merriweather-Regular",
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
