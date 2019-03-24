@@ -101,9 +101,11 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   instructions: {
+    fontSize: 15,
+    fontFamily: "Merriweather-Regular",
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
+    marginTop: 35
   },
   button1: {
       backgroundColor: '#4ba3c7',

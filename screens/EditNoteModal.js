@@ -18,32 +18,36 @@ export default class AddDateModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          id: "",
-          day: this.props.day,
-          month: this.props.month,
-          year: this.props.year,
-          hour: "",
+          id: this.props.id,
           name: "",
           description: ""
         }
-        this.saveDeviceData = this.saveDeviceData.bind(this);
+        this.updateNote = this.updateNote.bind(this);
+        this.fetchData = this.fetchData.bind(this);
+    }
+
+    componentDidMount() {
+      this.fetchData();
+    }
+
+    fetchData() {
+      var db = SQLite.openDatabase({name: 'md.db', createFromLocation: 1});
+  
+      var that = this;
+  
+      db.transaction(function(tx) {
+        tx.executeSql(
+          "SELECT * FROM notes WHERE id = ?;",
+          [that.state.id],
+          function (tx, results) {
+           that.setState({name: results.rows.item(0).name});
+           that.setState({description: results.rows.item(0).description});
+            }
+        );
+      });
     }
 
     goToScreen = (screenName) => {
-      /*
-      Navigation.push(this.props.componentId, {
-        component: {
-          name: screenName
-        }
-      })
-*/
-/*
-      Navigation.showModal({
-        component: {
-          name: screenName
-        }
-      });
-      */
       Navigation.push('MAIN_STACK', {
         component: {
           name: screenName
@@ -123,21 +127,37 @@ export default class AddDateModal extends Component {
      this.dismissModal();
     }
 
+    updateNote() {
+      var db = SQLite.openDatabase({name: 'md.db', createFromLocation: 1});
+
+      var that = this;
+
+      //alert(this.state.name);
+
+      db.transaction(txn => {
+        txn.executeSql(
+          "UPDATE notes SET name = ?, description = ? WHERE id = ?",
+          [that.state.name, that.state.description, that.state.id],
+          (tx, res) => {
+            alert("success!");
+          }
+        );
+      });
+
+     this.dismissModal();
+    }
+
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>id:</Text>
-        <TextInput style={styles.textInput} defaultValue={"1"} onChangeText={(textID) => this.setState({id: textID})}></TextInput>
-        <Text style={styles.welcome}>date:</Text>
-        <TextInput style={styles.textInput} defaultValue={this.state.day + "." + this.state.month + "." + this.state.year} onChangeText={(text1) => this.setState({date: text1})}></TextInput>
-        <Text style={styles.welcome}>hour:</Text>
-        <TextInput style={styles.textInput} onChangeText={(text2) => this.setState({hour: text2})}></TextInput>
+        <TextInput style={styles.textInput} defaultValue={this.state.id} onChangeText={(textID) => this.setState({id: textID})}></TextInput>
         <Text style={styles.welcome}>name:</Text>
-        <TextInput style={styles.textInput} onChangeText={(text3) => this.setState({name: text3})}></TextInput>
+        <TextInput style={styles.textInput} defaultValue={this.state.name} onChangeText={(text1) => this.setState({name: text1})}></TextInput>
         <Text style={styles.welcome}>description:</Text>
-        <TextInput style={styles.textInput} onChangeText={(text4) => this.setState({description: text4})}></TextInput>
-        <TouchableOpacity style={styles.button1} onPress={this.saveDeviceData}>
+        <TextInput style={styles.textInput} defaultValue={this.state.description} onChangeText={(text2) => this.setState({description: text2})}></TextInput>
+        <TouchableOpacity style={styles.button1} onPress={this.updateNote}>
                   <Text style={styles.welcome}>save</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button1} onPress={this.dismissModal}>
