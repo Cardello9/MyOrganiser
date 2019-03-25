@@ -65,7 +65,7 @@ Navigation.setRoot({
               bottomTab: {
                 fontSize: 12,
                 text: 'dates',
-                icon: require('./add.png')
+                icon: require('./first.png')
               }
             }
           },
@@ -77,7 +77,7 @@ Navigation.setRoot({
               bottomTab: {
                 text: 'notes',
                 fontSize: 12,
-                icon: require('./add.png')
+                icon: require('./writing.png')
                 //icon: require('./signup.png')
               }
             }
@@ -90,7 +90,7 @@ Navigation.setRoot({
               bottomTab: {
                 text: 'add date',
                 fontSize: 12,
-                icon: require('./add.png')
+                icon: require('./first.png')
                 //icon: require('./signup.png')
               }
             }
@@ -103,7 +103,7 @@ Navigation.setRoot({
               bottomTab: {
                 text: 'add note',
                 fontSize: 12,
-                icon: require('./add.png')
+                icon: require('./writing.png')
                 //icon: require('./signup.png')
               }
             }
