@@ -18,15 +18,17 @@ export default class AddDateModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          id: "",
+          id: "1",
           day: this.props.day,
           month: this.props.month,
           year: this.props.year,
           hour: "",
           name: "",
-          description: ""
+          description: "",
+          date: this.props.day + "." + this.props.month + "." + this.props.year
         }
         this.saveDeviceData = this.saveDeviceData.bind(this);
+        this.addDate = this.addDate.bind(this);
     }
 
     goToScreen = (screenName) => {
@@ -123,6 +125,26 @@ export default class AddDateModal extends Component {
      this.dismissModal();
     }
 
+    addDate() {
+      var db = SQLite.openDatabase({name: 'md.db', createFromLocation: 1});
+
+      var that = this;
+
+      //alert(this.state.date);
+
+      db.transaction(txn => {
+        txn.executeSql(
+          'UPDATE dates SET date = ?, hour = ?, name = ?, description = ? WHERE id = ?;',
+          [that.state.date, that.state.hour, that.state.name, that.state.description, that.state.id],
+          (tx, res) => {
+            alert("success!");
+            //alert(that.state.date);
+          }
+        );
+      });
+     this.dismissModal();
+    }
+
 
   render() {
     return (
@@ -137,7 +159,7 @@ export default class AddDateModal extends Component {
         <TextInput style={styles.textInput} onChangeText={(text3) => this.setState({name: text3})}></TextInput>
         <Text style={styles.welcome}>description:</Text>
         <TextInput style={styles.textInput} onChangeText={(text4) => this.setState({description: text4})}></TextInput>
-        <TouchableOpacity style={styles.button1} onPress={this.saveDeviceData}>
+        <TouchableOpacity style={styles.button1} onPress={this.addDate}>
                   <Text style={styles.welcome}>save</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button1} onPress={this.dismissModal}>
