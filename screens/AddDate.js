@@ -114,6 +114,28 @@ export default class AddDate extends Component {
     });
   }
 
+  showModalDelete = (id) => {
+    Navigation.showModal({
+      stack: {
+        children: [{
+          component: {
+            name: 'DeleteDateModal',
+            passProps: {
+              id: id
+            },
+            options: {
+              topBar: {
+                title: {
+                  text: 'Delete a date'
+                }
+              }
+            }
+          }
+        }]
+      }
+    });
+  }
+
   fetchData() {
     var db = SQLite.openDatabase({name: 'md.db', createFromLocation: 1});
 
@@ -215,7 +237,7 @@ export default class AddDate extends Component {
                     <Text style={styles.instructions}>{this.state.date1Name}</Text>
                     <Text style={styles.instructions}>{this.state.date1Date}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={()=>this.showModalDelete('1')}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={()=>this.showModalEdit('2')}>
@@ -223,7 +245,7 @@ export default class AddDate extends Component {
                     <Text style={styles.instructions}>{this.state.date2Name}</Text>
                     <Text style={styles.instructions}>{this.state.date2Date}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={()=>this.showModalDelete('2')}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={()=>this.showModalEdit('3')}>
@@ -231,7 +253,7 @@ export default class AddDate extends Component {
                     <Text style={styles.instructions}>{this.state.date3Name}</Text>
                     <Text style={styles.instructions}>{this.state.date3Date}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={()=>this.showModalDelete('3')}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={()=>this.showModalEdit('4')}>
@@ -239,7 +261,7 @@ export default class AddDate extends Component {
                     <Text style={styles.instructions}>{this.state.date4Name}</Text>
                     <Text style={styles.instructions}>{this.state.date4Date}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={()=>this.showModalDelete('4')}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={()=>this.showModalEdit('5')}>
@@ -247,7 +269,7 @@ export default class AddDate extends Component {
                     <Text style={styles.instructions}>{this.state.date5Name}</Text>
                     <Text style={styles.instructions}>{this.state.date5Date}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={()=>this.showModalDelete('5')}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={()=>this.showModalEdit('6')}>
@@ -255,7 +277,7 @@ export default class AddDate extends Component {
                     <Text style={styles.instructions}>{this.state.date6Name}</Text>
                     <Text style={styles.instructions}>{this.state.date6Date}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={()=>this.showModalDelete('6')}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={()=>this.showModalEdit('7')}>
@@ -263,7 +285,7 @@ export default class AddDate extends Component {
                     <Text style={styles.instructions}>{this.state.date7Name}</Text>
                     <Text style={styles.instructions}>{this.state.date7Date}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={()=>this.showModalDelete('7')}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={()=>this.showModalEdit('8')}>
@@ -271,7 +293,7 @@ export default class AddDate extends Component {
                     <Text style={styles.instructions}>{this.state.date8Name}</Text>
                     <Text style={styles.instructions}>{this.state.date8Date}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={()=>this.showModalDelete('8')}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={()=>this.showModalEdit('9')}>
@@ -279,7 +301,7 @@ export default class AddDate extends Component {
                     <Text style={styles.instructions}>{this.state.date9Name}</Text>
                     <Text style={styles.instructions}>{this.state.date9Date}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={()=>this.showModalDelete('9')}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={()=>this.showModalEdit('10')}>
@@ -287,7 +309,7 @@ export default class AddDate extends Component {
                     <Text style={styles.instructions}>{this.state.date10Name}</Text>
                     <Text style={styles.instructions}>{this.state.date10Date}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={()=>this.showModalDelete('10')}><Text style={styles.instructionsDel}>delete</Text></TouchableOpacity>
                 </View>
           </ScrollView>
       </View>

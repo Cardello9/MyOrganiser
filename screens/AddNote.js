@@ -119,6 +119,28 @@ export default class AddNote extends Component {
       });
     }
 
+    showModalDelete = (id) => {
+      Navigation.showModal({
+        stack: {
+          children: [{
+            component: {
+              name: 'DeleteNoteModal',
+              passProps: {
+                id: id
+              },
+              options: {
+                topBar: {
+                  title: {
+                    text: 'Delete a modal'
+                  }
+                }
+              }
+            }
+          }]
+        }
+      });
+    }
+
   render() {
     return (
         <View style={styles.container}>
@@ -135,70 +157,70 @@ export default class AddNote extends Component {
                     <Text style={styles.instructions2}>1.</Text>
                     <Text style={styles.instructions2}>{this.state.note1Name}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={() => this.showModalDelete('1')}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={() => {this.showModal('2', this.state.note2Name, this.state.note2Desc)}}>
                     <Text style={styles.instructions2}>2.</Text>
                     <Text style={styles.instructions2}>{this.state.note2Name}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={() => this.showModalDelete('2')}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={() => {this.showModal('3', this.state.note3Name, this.state.note3Desc)}}>
                     <Text style={styles.instructions2}>3.</Text>
                     <Text style={styles.instructions2}>{this.state.note3Name}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={() => this.showModalDelete('3')}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={() => {this.showModal('4', this.state.note4Name, this.state.note4Desc)}}>
                     <Text style={styles.instructions2}>4.</Text>
                     <Text style={styles.instructions2}>{this.state.note4Name}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={() => this.showModalDelete('4')}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={() => {this.showModal('5', this.state.note5Name, this.state.note5Desc)}}>
                     <Text style={styles.instructions2}>5.</Text>
                     <Text style={styles.instructions2}>{this.state.note5Name}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={() => this.showModalDelete('5')}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={() => {this.showModal('6', this.state.note6Name, this.state.note6Desc)}}>
                     <Text style={styles.instructions2}>6.</Text>
                     <Text style={styles.instructions2}>{this.state.note6Name}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={() => this.showModalDelete('6')}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={() => {this.showModal('7', this.state.note7Name, this.state.note7Desc)}}>
                     <Text style={styles.instructions2}>7.</Text>
                     <Text style={styles.instructions2}>{this.state.note7Name}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={() => this.showModalDelete('7')}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={() => {this.showModal('8', this.state.note8Name, this.state.note8Desc)}}>
                     <Text style={styles.instructions2}>8.</Text>
                     <Text style={styles.instructions2}>{this.state.note8Name}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={() => this.showModalDelete('8')}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={() => {this.showModal('9', this.state.note9Name, this.state.note9Desc)}}>
                     <Text style={styles.instructions2}>9.</Text>
                     <Text style={styles.instructions2}>{this.state.note9Name}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={() => this.showModalDelete('9')}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
                 </View>
                 <View style={styles.nextRow}>
                   <TouchableOpacity style={styles.button1} onPress={() => {this.showModal('10', this.state.note10Name, this.state.note10Desc)}}>
                     <Text style={styles.instructions2}>10.</Text>
                     <Text style={styles.instructions2}>{this.state.note10Name}</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonDelete}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.buttonDelete} onPress={() => this.showModalDelete('10')}><Text style={styles.instructions}>delete</Text></TouchableOpacity>
                 </View>
           </ScrollView>
       </View>

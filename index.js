@@ -17,6 +17,8 @@ import AddNote from './screens/AddNote';
 import AddDateModal from './screens/AddDateModal';
 import EditNoteModal from './screens/EditNoteModal';
 import EditDateModal from './screens/EditDateModal';
+import DeleteNoteModal from './screens/DeleteNoteModal';
+import DeleteDateModal from './screens/DeleteDateModal';
 
 Navigation.registerComponent(`navigation.playground.WelcomeScreen`, () => App);
 
@@ -33,6 +35,8 @@ Navigation.registerComponent('AddNote', () => AddNote);
 Navigation.registerComponent('AddDateModal', () => AddDateModal);
 Navigation.registerComponent('EditNoteModal', () => EditNoteModal);
 Navigation.registerComponent('EditDateModal', () => EditDateModal);
+Navigation.registerComponent('DeleteNoteModal', () => DeleteNoteModal);
+Navigation.registerComponent('DeleteDateModal', () => DeleteDateModal);
 
 //Navigation.registerComponent('Devices', () => require('./screens/Devices').default);
 //Navigation.registerComponent('Connection', () => require('./screens/Connection').default);
