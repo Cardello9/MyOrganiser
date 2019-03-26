@@ -17,45 +17,25 @@ export default class Dates extends Component {
     this.state = {
       refreshing: false,
       date1Date: "",
-      date1Hour: "",
       date1Name: "",
-      date1Desc: "",
       date2Date: "",
-      date2Hour: "",
       date2Name: "",
-      date2Desc: "",
       date3Date: "",
-      date3Hour: "",
       date3Name: "",
-      date3Desc: "",
       date4Date: "",
-      date4Hour: "",
       date4Name: "",
-      date4Desc: "",
       date5Date: "",
-      date5Hour: "",
       date5Name: "",
-      date5Desc: "",
       date6Date: "",
-      date6Hour: "",
       date6Name: "",
-      date6Desc: "",
       date7Date: "",
-      date7Hour: "",
       date7Name: "",
-      date7Desc: "",
       date8Date: "",
-      date8Hour: "",
       date8Name: "",
-      date8Desc: "",
       date9Date: "",
-      date9Hour: "",
       date9Name: "",
-      date9Desc: "",
       date10Date: "",
-      date10Hour: "",
-      date10Name: "",
-      date10Desc: "",
+      date10Name: ""
     };
   }
 
@@ -98,54 +78,34 @@ export default class Dates extends Component {
         [],
         function (tx, results) {
           that.setState({date1Date: results.rows.item(0).date});
-          that.setState({date1Hour: results.rows.item(0).hour});
           that.setState({date1Name: results.rows.item(0).name});
-          that.setState({date1Desc: results.rows.item(0).description});
 
           that.setState({date2Date: results.rows.item(1).date});
-          that.setState({date2Hour: results.rows.item(1).hour});
           that.setState({date2Name: results.rows.item(1).name});
-          that.setState({date2Desc: results.rows.item(1).description});
 
           that.setState({date3Date: results.rows.item(2).date});
-          that.setState({date3Hour: results.rows.item(2).hour});
           that.setState({date3Name: results.rows.item(2).name});
-          that.setState({date3Desc: results.rows.item(2).description});
 
           that.setState({date4Date: results.rows.item(3).date});
-          that.setState({date4Hour: results.rows.item(3).hour});
           that.setState({date4Name: results.rows.item(3).name});
-          that.setState({date4Desc: results.rows.item(3).description});
 
           that.setState({date5Date: results.rows.item(4).date});
-          that.setState({date5Hour: results.rows.item(4).hour});
           that.setState({date5Name: results.rows.item(4).name});
-          that.setState({date5Desc: results.rows.item(4).description});
 
           that.setState({date6Date: results.rows.item(5).date});
-          that.setState({date6Hour: results.rows.item(5).hour});
           that.setState({date6Name: results.rows.item(5).name});
-          that.setState({date6Desc: results.rows.item(5).description});
 
           that.setState({date7Date: results.rows.item(6).date});
-          that.setState({date7Hour: results.rows.item(6).hour});
           that.setState({date7Name: results.rows.item(6).name});
-          that.setState({date7Desc: results.rows.item(6).description});
 
           that.setState({date8Date: results.rows.item(7).date});
-          that.setState({date8Hour: results.rows.item(7).hour});
           that.setState({date8Name: results.rows.item(7).name});
-          that.setState({date8Desc: results.rows.item(7).description});
 
           that.setState({date9Date: results.rows.item(8).date});
-          that.setState({date9Hour: results.rows.item(8).hour});
           that.setState({date9Name: results.rows.item(8).name});
-          that.setState({date9Desc: results.rows.item(8).description});
 
           that.setState({date10Date: results.rows.item(9).date});
-          that.setState({date10Hour: results.rows.item(9).hour});
           that.setState({date10Name: results.rows.item(9).name});
-          that.setState({date10Desc: results.rows.item(9).description});
           }
       );
     });

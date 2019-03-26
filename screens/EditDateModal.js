@@ -13,16 +13,18 @@ import { App } from '../App';
 import SQLite from 'react-native-sqlite-storage';
 
 
-export default class EditNoteModal extends Component {
+export default class EditDateModal extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
           id: this.props.id,
           name: "",
-          description: ""
+          description: "",
+          hour: "",
+          date: "",
         }
-        this.updateNote = this.updateNote.bind(this);
+        this.updateDate = this.updateDate.bind(this);
         this.fetchData = this.fetchData.bind(this);
     }
 
@@ -37,11 +39,13 @@ export default class EditNoteModal extends Component {
   
       db.transaction(function(tx) {
         tx.executeSql(
-          "SELECT * FROM notes WHERE id = ?;",
+          "SELECT * FROM dates WHERE id = ?;",
           [that.state.id],
           function (tx, results) {
            that.setState({name: results.rows.item(0).name});
            that.setState({description: results.rows.item(0).description});
+           that.setState({hour: results.rows.item(0).hour});
+           that.setState({date: results.rows.item(0).date});
             }
         );
       });
@@ -126,18 +130,18 @@ export default class EditNoteModal extends Component {
       */
      this.dismissModal();
     }
-
-    updateNote() {
+/*
+    updateDate() {
       var db = SQLite.openDatabase({name: 'md.db', createFromLocation: 1});
 
       var that = this;
 
-      //alert(this.state.name);
+      alert(that.state.name + that.state.description + that.state.date + that.state.hour + that.state.id);
 
       db.transaction(txn => {
         txn.executeSql(
-          "UPDATE notes SET name = ?, description = ? WHERE id = ?",
-          [that.state.name, that.state.description, that.state.id],
+          "UPDATE dates SET name = ?, description = ?, date = ?, hour = ?, WHERE id = ?",
+          [that.state.name, that.state.description, that.state.date, that.state.hour, that.state.id],
           (tx, res) => {
             alert("success!");
           }
@@ -146,18 +150,42 @@ export default class EditNoteModal extends Component {
 
      this.dismissModal();
     }
+*/
 
+    updateDate() {
+      var db = SQLite.openDatabase({name: 'md.db', createFromLocation: 1});
+
+      var that = this;
+
+      //alert(this.state.date);
+
+      db.transaction(txn => {
+        txn.executeSql(
+          'UPDATE dates SET date = ?, hour = ?, name = ?, description = ? WHERE id = ?;',
+          [that.state.date, that.state.hour, that.state.name, that.state.description, that.state.id],
+          (tx, res) => {
+            alert("success!");
+            //alert(that.state.date);
+          }
+        );
+      });
+     this.dismissModal();
+    }
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>id:</Text>
         <TextInput style={styles.textInput} defaultValue={this.state.id} onChangeText={(textID) => this.setState({id: textID})}></TextInput>
+        <Text style={styles.welcome}>date:</Text>
+        <TextInput style={styles.textInput} defaultValue={this.state.date} onChangeText={(textD) => this.setState({date: textD})}></TextInput>
+        <Text style={styles.welcome}>hour:</Text>
+        <TextInput style={styles.textInput} defaultValue={this.state.hour} onChangeText={(textH) => this.setState({hour: textH})}></TextInput>
         <Text style={styles.welcome}>name:</Text>
         <TextInput style={styles.textInput} defaultValue={this.state.name} onChangeText={(text1) => this.setState({name: text1})}></TextInput>
         <Text style={styles.welcome}>description:</Text>
         <TextInput style={styles.textInput} defaultValue={this.state.description} onChangeText={(text2) => this.setState({description: text2})}></TextInput>
-        <TouchableOpacity style={styles.button1} onPress={this.updateNote}>
+        <TouchableOpacity style={styles.button1} onPress={this.updateDate}>
                   <Text style={styles.welcome}>save</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button1} onPress={this.dismissModal}>
