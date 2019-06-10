@@ -256,12 +256,17 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
   button1: {
-      backgroundColor: '#4ba3c7',
-      width: 200,
-      height: 100,
-      //marginLeft: 10
-      marginTop: 10,
-      marginBottom: 10
+    
+    backgroundColor: '#4ba3c7',
+    width: 200,
+    height: 100,
+    marginRight: 10,
+    marginLeft: 10,
+    marginTop: 10,
+    marginBottom: 10,
+    borderRadius: 10,
+  borderWidth: 1,
+  borderColor: '#fff'
   },
   buttonDelete: {
     backgroundColor: '#A4D7ED',
