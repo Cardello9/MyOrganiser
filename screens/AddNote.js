@@ -236,14 +236,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#81d4fa',
   },
   welcome: {
-    fontFamily: "Merriweather-Regular",
+    fontFamily: "Fresca",
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
   },
   instructions: {
     fontSize: 15,
-    fontFamily: "Merriweather-Regular",
+    fontFamily: "Lobster",
     textAlign: 'center',
     color: '#333333',
     marginTop: 35
